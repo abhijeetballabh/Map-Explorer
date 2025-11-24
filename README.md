@@ -2,6 +2,8 @@
 
 A React-based web application that replicates Google Maps functionality, allowing users to search for locations, view them on an interactive map, and discover nearby points of interest by category.
 
+🌍 **[Live Demo](https://map-explorer-eight.vercel.app/)** - Visit the deployed app
+
 ## Features
 
 - **Interactive Map**: Built with React Leaflet and Leaflet for seamless map interactions
