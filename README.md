@@ -1,4 +1,4 @@
-# Google Maps Clone
+# Map Explorer
 
 A React-based web application that replicates Google Maps functionality, allowing users to search for locations, view them on an interactive map, and discover nearby points of interest by category.
 
