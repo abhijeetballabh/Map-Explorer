@@ -1,70 +1,138 @@
-# Getting Started with Create React App
+# Google Maps Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based web application that replicates Google Maps functionality, allowing users to search for locations, view them on an interactive map, and discover nearby points of interest by category.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Interactive Map**: Built with React Leaflet and Leaflet for seamless map interactions
+- **Geolocation Support**: Automatically detects and displays user's current location with location accuracy feedback
+- **Location Search**: Autocomplete search functionality using OpenStreetMap's Nominatim API
+- **Point of Interest Discovery**: Browse nearby places by categories:
+  - Restaurants
+  - Hospitals
+  - Museums
+  - Gas Stations
+  - And more...
+- **Real-time Place Fetching**: Uses OpenStreetMap's Overpass API to fetch nearby places based on selected category
+- **Responsive UI**: Search panel and map controls for easy navigation
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend Framework**: React 18.3.1
+- **Mapping Library**: 
+  - React Leaflet 4.2.1
+  - Leaflet 1.9.4
+- **API Integration**:
+  - Axios 1.7.9 (HTTP requests)
+  - OpenStreetMap Nominatim (location search)
+  - OpenStreetMap Overpass API (place data)
+- **UI Components**:
+  - React Autosuggest 10.1.0 (search suggestions)
+- **Build Tool**: Create React App with React Scripts 5.0.1
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
+```
+src/
+├── App.js              # Main application component with map logic
+├── App.css             # Main styling
+├── Search.js           # Search component with autosuggest functionality
+├── Search.css          # Search styling
+├── index.js            # React entry point
+├── index.css           # Global styles
+└── setupTests.js       # Test configuration
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+public/
+├── index.html          # HTML template
+├── manifest.json       # PWA manifest
+└── robots.txt          # SEO robots file
+```
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v14 or higher)
+- npm or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
+```bash
+git clone https://github.com/abhijeetballabh/React-Map-App.git
+cd final-google-maps-clone
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running the Application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Start the development server:
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The application will open at [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+### Building for Production
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create an optimized production build:
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This generates a `build/` folder with minified files ready for deployment.
 
-### Code Splitting
+### Running Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm test
+```
 
-### Analyzing the Bundle Size
+Launches the test runner in interactive watch mode.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Usage
 
-### Making a Progressive Web App
+1. **Allow Location Access**: When prompted, grant location permission to display your current position on the map
+2. **Search for Locations**: Use the search bar to find any location. The autocomplete will suggest matching locations
+3. **Explore Places**: Click on category buttons (Restaurant, Hospital, Museum, etc.) to discover nearby places
+4. **View Place Details**: Click on markers to see place information in popups
+5. **Navigate Map**: Use standard map controls to zoom and pan around the map
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## API References
 
-### Advanced Configuration
+- **Nominatim Search API**: `https://nominatim.openstreetmap.org/search`
+  - Provides location search and autocomplete suggestions
+  
+- **Overpass API**: `https://overpass-api.de/api/interpreter`
+  - Fetches nearby points of interest within a 2km radius of the selected location
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Browser Support
 
-### Deployment
+The application supports all modern browsers including:
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Known Limitations
 
-### `npm run build` fails to minify
+- Location accuracy warning displays for accuracy readings over 100 meters
+- Place searches are limited to a 2km radius around the selected location
+- Some location categories may have limited data depending on OSM coverage in that region
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future Enhancements
+
+- Route planning and directions
+- Street view integration
+- Custom marker clustering for better performance
+- Place reviews and ratings integration
+- Offline map support
+- User location history
+
+## Author
+
+- **Abhijeet Ballabh** - GitHub: [@abhijeetballabh](https://github.com/abhijeetballabh)
